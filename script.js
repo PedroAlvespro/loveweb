@@ -1,6 +1,5 @@
 // Configurações
 const startDate = new Date('2024-07-14T00:00:00'); // Data de início do namoro: 14/07/2024
-const youtubeVideoId = 'X919l0h3y5g'; // Marcelo Jeneci - Pra Sonhar (Exemplo de ID - Altere se o vídeo falhar)
 
 // Elementos da UI
 const startBtn = document.getElementById('start-btn');
@@ -12,35 +11,8 @@ const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 
-// Lógica de Transição de Tela e Início da Música
-let player;
-
-// Função chamada pela API do YouTube quando pronta
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '0',
-        width: '0',
-        videoId: 'sF2YQdF4yP4', // ID alternativo para 'Pra Sonhar'
-        playerVars: {
-            'autoplay': 0,
-            'controls': 0,
-            'loop': 1,
-            'playlist': 'sF2YQdF4yP4' // Necessário para o loop funcionar
-        },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-
-    // Fallback: se o ID não for reconhecido, pelo menos o código não quebra.
-    // Você pode procurar "Marcelo Jeneci Pra Sonhar" no YouTube,
-    // clicar em compartilhar e pegar o ID (as letrinhas depois da barra).
-    // Exemplos: sF2YQdF4yP4, jc2P01Z9e0M
-}
-
-function onPlayerReady(event) {
-    // Player está pronto para ser iniciado
-}
+// Pegando a referência para o player de áudio
+const musicaDiv = document.getElementById('meu-audio');
 
 startBtn.addEventListener('click', () => {
     // Ocultar tela inicial
@@ -52,8 +24,8 @@ startBtn.addEventListener('click', () => {
         mainScreen.classList.remove('hidden');
         
         // Iniciar música
-        if (player && typeof player.playVideo === 'function') {
-            player.playVideo();
+        if (musicaDiv) {
+            musicaDiv.play();
         }
         
         // Iniciar criar corações
