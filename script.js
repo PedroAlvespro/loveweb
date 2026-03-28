@@ -15,6 +15,11 @@ const secondsEl = document.getElementById('seconds');
 const musicaDiv = document.getElementById('meu-audio');
 
 startBtn.addEventListener('click', () => {
+    // Iniciar música de forma síncrona com o clique, senão o navegador bloqueia (não pode ficar no setTimeout)
+    if (musicaDiv) {
+        musicaDiv.play().catch(e => console.log('Erro ao tocar música:', e));
+    }
+
     // Ocultar tela inicial
     startScreen.classList.add('hidden');
     
@@ -22,11 +27,6 @@ startBtn.addEventListener('click', () => {
     setTimeout(() => {
         startScreen.style.display = 'none';
         mainScreen.classList.remove('hidden');
-        
-        // Iniciar música
-        if (musicaDiv) {
-            musicaDiv.play();
-        }
         
         // Iniciar criar corações
         startHearts();
