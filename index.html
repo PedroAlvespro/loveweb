@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for cute icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Tela de Início (Para interação e iniciar a música) -->
+    <div id="start-screen" class="screen">
+        <div class="heart-pulse">
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        <h1>Olá, meu amor...</h1>
+        <p>Tenho uma surpresa para você.</p>
+        <button id="start-btn">Clique para abrir ❤️</button>
+    </div>
+
+    <!-- Tela Principal do Presente -->
+    <div id="main-screen" class="screen hidden">
+        
+        <header>
+            <h1 class="title">Pedro & Priscila</h1>
+            <p class="subtitle">Juntos para sempre</p>
+        </header>
+
+        <section class="counter-section">
+            <h2>Nosso Amor em Tempo:</h2>
+            <div class="counter-box" id="time-counter">
+                <div class="time-block">
+                    <span id="days">0</span>
+                    <span class="label">Dias</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">0</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">0</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">0</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+            <p class="start-date-text">Desde 14 de Julho de 2024</p>
+        </section>
+
+        <!-- Player do YouTube invisível/pequeno para tocar a música -->
+        <!-- "Pra Sonhar" - Marcelo Jeneci -->
+        <div class="music-player">
+            <p><i class="fa-solid fa-music"></i> Tocando: Pra Sonhar - Marcelo Jeneci</p>
+            <div id="player"></div>
+        </div>
+
+        <section class="gallery-section">
+            <h2>Nossas Memórias</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <!-- As imagens da pasta img -->
+                    <div class="carousel-slide active">
+                        <img src="img/Captura de tela 2026-03-27 210150.png" alt="Nossa foto 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/Captura de tela 2026-03-27 210159.png" alt="Nossa foto 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/Captura de tela 2026-03-27 210213.png" alt="Nossa foto 3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="img/Captura de tela 2026-03-27 210232.png" alt="Nossa foto 4">
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev" id="prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next" id="next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Feito com muito ❤️ de Pedro para Priscila.</p>
+        </footer>
+        
+        <!-- Floating hearts animation background -->
+        <div class="floating-hearts-container" id="hearts-container"></div>
+    </div>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
